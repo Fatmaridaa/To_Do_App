@@ -1,0 +1,51 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ToDoApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorAccent">@color/blue</item>
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+    </style>
+
+    <style name="Theme.ToDoApp" parent="Base.Theme.ToDoApp">
+
+        <item name="colorPrimary">@color/blue</item>
+        <item name="android:statusBarColor">@color/dark_blue</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="statusBarBackground">@color/dark_blue</item>
+
+
+    </style>
+
+    <style name="backgroundStyle">
+
+        <item name="android:background">@color/dark_blue</item>
+    </style>
+
+    <style name="bottom_appbar_color">
+        <item name="android:backgroundTint">@color/black2</item>
+    </style>
+
+
+    <style name="calendar_card_background">
+
+        <item name="android:backgroundTint">@color/black2</item>
+    </style>
+
+    <style name="calenderTxtColor">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="card_text_color">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="clock_ic_style">
+        <item name="android:src">@drawable/ic_clock_dark</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    app:backgroundTint="@color/white"
+    app:cardCornerRadius="16dp"
+    app:contentPadding="10dp"
+    app:strokeColor="@android:color/transparent"
+
+
+    >
+
+    <com.zerobranch.layout.SwipeLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:draggedItem="@id/drag_item"
+        app:isFreeDragAfterOpen="true"
+        app:isTogether="true"
+        app:leftItem="@id/left_view"
+        app:swipeDirection="right">
+
+        <ImageView
+            android:id="@+id/left_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="#ff5722"
+            android:gravity="center"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:src="@drawable/ic_delete" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/drag_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <View
+                android:id="@+id/task_status_divider"
+                android:layout_width="3dp"
+                android:layout_height="0dp"
+                android:background="@color/blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/task_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/task_status_divider"
+
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Play basketball" />
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                app:layout_constraintStart_toEndOf="@id/task_status_divider"
+                app:layout_constraintTop_toBottomOf="@id/task_title">
+
+                <ImageView
+                    style="@style/clock_ic_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:adjustViewBounds="true" />
+
+                <TextView
+                    android:id="@+id/task_time"
+                    style="@style/card_text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="10:50 PM" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/item_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="6dp"
+                android:text="Done !"
+                android:textColor="@color/green"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/linear_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/task_title" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/task_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/blue"
+                app:cardCornerRadius="8dp"
+                app:contentPadding="2dp"
+
+
+                app:layout_constraintBottom_toBottomOf="@id/linear_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/task_title">
+
+
+                <ImageView
+                    android:id="@+id/item_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    android:src="@drawable/done_ic" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.zerobranch.layout.SwipeLayout>
+
+</com.google.android.material.card.MaterialCardView>

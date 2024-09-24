@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="calendarTextColor">#FFFFFF</color>
+
+    <color name="spinnerBackground">@color/gray</color>
+    <color name="editTask">@color/black2</color>
+</resources>

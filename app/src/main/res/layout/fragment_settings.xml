@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SettingsFragment">
+
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+
+        android:padding="30dp"
+        android:title="Settings"
+        android:titleTextColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+
+
+        />
+
+
+    <View
+        android:id="@+id/blue_view"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/blue"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+
+        />
+
+
+    <TextView
+        android:id="@+id/languageTxtView"
+        style="@style/calenderTxtColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+
+        android:layout_marginVertical="18dp"
+        android:text="Language"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blue_view" />
+
+
+    <Spinner
+        android:id="@+id/languageSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+
+
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="18dp"
+        android:entries="@array/languages"
+        android:foreground="@drawable/spinner_background"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/languageTxtView" />
+
+
+    <TextView
+        android:id="@+id/modeTxtView"
+        style="@style/calenderTxtColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+
+        android:layout_marginVertical="18dp"
+        android:text="Mode"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/languageSpinner" />
+
+
+    <Spinner
+        android:id="@+id/modeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="18dp"
+        android:entries="@array/modes"
+        android:foreground="@drawable/spinner_background"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toBottomOf="@id/modeTxtView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
