@@ -41,13 +41,13 @@ class ListFragment : Fragment() {
     var selectedDate: LocalDate? = null
     lateinit var calendar: Calendar
 
-    private val EDIT_TASK_REQUEST_CODE = 1 // Define a request code for editing tasks
+    private val EDIT_TASK_REQUEST_CODE = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
+
         binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -61,38 +61,37 @@ class ListFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        // Refresh the task list if returning from EditTaskActivity
+
         if (requestCode == EDIT_TASK_REQUEST_CODE && resultCode == AppCompatActivity.RESULT_OK) {
             getTasksFromDatabase()
         }
     }
 
-    // Update to include task deletion logic
+
     fun getTasksFromDatabase() {
         CoroutineScope(Dispatchers.IO).launch {
             val tasks = TaskDatabase.getInstance(requireContext()).getTaskDao().getAllTasks()
             withContext(Dispatchers.Main) {
                 adapter = TaskAdapter(tasks, { task ->
-                    // Task click logic for editing
-                    val intent = Intent(requireContext(), EditTaskActivity::class.java)
+
+                val intent = Intent(requireContext(), EditTaskActivity::class.java)
                     intent.putExtra("TASK_ID", task.id)
                     startActivityForResult(intent, EDIT_TASK_REQUEST_CODE)
                 }, { task ->
-                    // Task delete logic
-                    deleteTask(task)
+
+                deleteTask(task)
                 })
                 binding.tasksRecyclerView.adapter = adapter
             }
         }
     }
 
-    // Function to delete task from the database and update UI
     private fun deleteTask(task: Task) {
         CoroutineScope(Dispatchers.IO).launch {
             TaskDatabase.getInstance(requireContext()).getTaskDao().deleteTask(task)
 
             withContext(Dispatchers.Main) {
-                getTasksFromDatabase() // Refresh the task list after deletion
+                getTasksFromDatabase()
             }
         }
     }
@@ -102,10 +101,10 @@ class ListFragment : Fragment() {
             bindWeekCalendarView()
             val currentDate = LocalDate.now()
             val currentMonth = YearMonth.now()
-            val startDate = currentMonth.minusMonths(100).atStartOfMonth() // Adjust as needed
-            val endDate = currentMonth.plusMonths(100).atEndOfMonth() // Adjust as needed
+            val startDate = currentMonth.minusMonths(100).atStartOfMonth()
+            val endDate = currentMonth.plusMonths(100).atEndOfMonth()
             val firstDayOfWeek =
-                firstDayOfWeekFromLocale(Locale.forLanguageTag("ar")) // Available from the library
+                firstDayOfWeekFromLocale(Locale.forLanguageTag("ar"))
             binding.weekCalendarView.setup(startDate, endDate, firstDayOfWeek)
             binding.weekCalendarView.scrollToWeek(currentDate)
         }

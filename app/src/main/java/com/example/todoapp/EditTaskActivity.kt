@@ -61,13 +61,13 @@ class EditTaskActivity : AppCompatActivity() {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         task.date?.let {
             binding.editDate.text = dateFormat.format(it)
-            calendar.time = it // Set calendar time to existing task date
-            isDateSelected = true // Date is selected if it exists
+            calendar.time = it
+            isDateSelected = true
         }
 
         // Set the time
         binding.editTime.text = task.time ?: ""
-        isTimeSelected = task.time != null // Time is selected if it exists
+        isTimeSelected = task.time != null
     }
 
     private fun showDatePickerDialog() {
@@ -103,11 +103,11 @@ class EditTaskActivity : AppCompatActivity() {
         val updatedTitle = binding.editTitle.text.toString()
         val updatedDescription = binding.editDescription.text.toString()
 
-        // Use the selected date and time, or retain existing values if not selected
+
         val updatedDate = if (isDateSelected) calendar.time else null
         val updatedTime = if (isTimeSelected) binding.editTime.text.toString() else null
 
-        // Update the task in the database
+
         val task = TaskDatabase.getInstance(this).getTaskDao().getTaskById(taskId)
         task.title = updatedTitle
         task.description = updatedDescription
@@ -116,7 +116,7 @@ class EditTaskActivity : AppCompatActivity() {
 
         TaskDatabase.getInstance(this).getTaskDao().updateTask(task)
 
-        // Set result and finish the activity
+
         setResult(RESULT_OK)
         finish()
     }

@@ -65,7 +65,7 @@ class TaskAdapter(
         holder.binding.taskDone.setOnClickListener {
             item.isDone = true
 
-            // Update in the database
+
             CoroutineScope(Dispatchers.IO).launch {
                 TaskDatabase.getInstance(holder.binding.root.context)
                     .getTaskDao().updateTask(item)
